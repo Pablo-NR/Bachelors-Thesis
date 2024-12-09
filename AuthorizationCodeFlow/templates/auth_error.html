@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microsoft Identity Python Web App: Error</title>
+    <link rel="shortcut icon" href="/icon.ico">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>Microsoft Identity Python Web App</h1>
+    </header>
+    <main role="main">
+        <h2>Login Failure</h2>
+        <dl>
+            <!-- Flask automatically escapes these unsafe input, so we do not have to.
+            See also https://flask.palletsprojects.com/en/2.0.x/templating/#jinja-setup -->
+            <dt>{{ result.get("error") }}</dt>
+            <dd>{{ result.get("error_description") }}</dd>
+        </dl>
+        <hr>
+        <a href="{{ url_for('index') }}">Homepage</a>
+    </main>
+    <footer role="contentinfo">
+        By Pablo Navarro Rueda
+    </footer>
+</body>
+</html>

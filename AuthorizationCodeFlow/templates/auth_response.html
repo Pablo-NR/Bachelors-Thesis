@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Microsoft Identity Python Web App: Auth Response</title>
+    <script type="text/javascript">
+        function getTokenFromUrl() {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            const token = params.get("access_token");
+            if (token) {
+                const form = document.createElement("form");
+                form.method = "POST";
+                form.action = "{{ url_for('auth_response') }}";
+                
+                const hiddenField = document.createElement("input");
+                hiddenField.type = "hidden";
+                hiddenField.name = "access_token";
+                hiddenField.value = token;
+                
+                form.appendChild(hiddenField);
+                document.body.appendChild(form);
+                form.submit();
+            } else {
+                window.location.href = "{{ url_for('login') }}";
+            }
+        }
+        window.onload = getTokenFromUrl;
+    </script>
+</head>
+<body>
+    <h1>Processing Authentication...</h1>
+</body>
+</html>
