@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TFG - APP: API GRAPH</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header role="banner">
+        <h1>TFG - APP</h1>
+    </header>
+    <main role="main">
+        <a href="javascript:window.history.go(-1)" class="back-button">Back</a> <!-- Displayed on top of a potentially large JSON response, so it will remain visible -->
+        <h1>Result of the API call</h1>
+        <pre>{{ result | tojson(indent=4) }}</pre> <!-- Just a generic JSON viewer -->
+    </main>
+    <footer role="contentinfo">
+        By Pablo Navarro Rueda
+    </footer>
+</body>
+</html>
